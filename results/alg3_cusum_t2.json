@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "data_dir": "Danmini_Doorbell",
+    "benign_path": "Danmini_Doorbell/benign_traffic.csv",
+    "attack_paths": {
+      "gafgyt": "Danmini_Doorbell/gafgyt_attacks/combo.csv",
+      "mirai": "Danmini_Doorbell/mirai_attacks/syn.csv"
+    },
+    "n_features_raw": 115,
+    "n_train": 2000,
+    "n_calib": 1000,
+    "n_test_benign": 1000,
+    "benign_row_ranges": {
+      "train": [
+        3,
+        2003
+      ],
+      "calib": [
+        2003,
+        3003
+      ],
+      "test_benign": [
+        3003,
+        4003
+      ]
+    },
+    "attack_restart_rows_skipped": {
+      "gafgyt": 1,
+      "mirai": 1
+    },
+    "benign_capture_restarts_in_window": [
+      3
+    ],
+    "benign_rows_repeating_earlier_rows": {
+      "in_file": 9153,
+      "in_window": 0
+    },
+    "n_attack_used": 1000,
+    "train_offset": 3,
+    "onset_index": 1000,
+    "preprocessing": {
+      "n_constant_columns_dropped": 0,
+      "p_eff": 81,
+      "rank_tol": 1e-08
+    }
+  },
+  "CUSUM_K_CHOICES": {
+    "tuned": 1.0,
+    "conservative": 3.0
+  },
+  "CUSUM_H_IN_SIGMAS": 5.0,
+  "cusum_h_design": {
+    "mode": "arl",
+    "arl0_target": 1000.0,
+    "bootstrap": {
+      "method": "stationary",
+      "mean_block": 50.0,
+      "replicates": 400,
+      "length": 20000,
+      "seed": 0
+    },
+    "by_k": {
+      "tuned": {
+        "k": 1.0,
+        "h": 7.47,
+        "false_alarm_rate": 0.0009725,
+        "arl0_estimate": 1028.2776349614396,
+        "n_bootstrap_observations": 8000000,
+        "at_reference_h": {
+          "h": 5.0,
+          "false_alarm_rate": 0.003923375,
+          "arl0_estimate": 254.8825947048141
+        },
+        "h_used": 7.47,
+        "targeted_t2_factor": 18.776232447292504
+      },
+      "conservative": {
+        "k": 3.0,
+        "h": 2.51,
+        "false_alarm_rate": 0.00097625,
+        "arl0_estimate": 1024.3277848911653,
+        "n_bootstrap_observations": 8000000,
+        "at_reference_h": {
+          "h": 5.0,
+          "false_alarm_rate": 3.75e-07,
+          "arl0_estimate": 2666666.6666666665
+        },
+        "h_used": 2.51,
+        "targeted_t2_factor": 6619.50263525306
+      }
+    }
+  },
+  "cusum_reference": {
+    "method": "calibration",
+    "statistic": "log",
+    "mean": 2.8461195502391403,
+    "sd": 1.4662959192470302,
+    "one_sided": true
+  },
+  "per_attack": {
+    "gafgyt": {
+      "n_attack_used": 1000,
+      "onset_index": 1000,
+      "cusum_on_naive_t2": {
+        "tuned": {
+          "k": 1.0,
+          "h": 7.47,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 5,
+            "0.01": 6,
+            "0.001": 12,
+            "0.0003": 655,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 2.51,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "delay_by_effectiveness": {
+            "1": 0,
+            "0.1": 5,
+            "0.01": 6,
+            "0.001": null,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      },
+      "cusum_on_naive_t2_fixed_h": {
+        "tuned": {
+          "k": 1.0,
+          "h": 5.0,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "delay_by_effectiveness": {
+            "1": 0,
+            "0.1": 4,
+            "0.01": 6,
+            "0.001": 10,
+            "0.0003": 631,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 5.0,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 5,
+            "0.01": 7,
+            "0.001": null,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      }
+    },
+    "mirai": {
+      "n_attack_used": 1000,
+      "onset_index": 1000,
+      "cusum_on_naive_t2": {
+        "tuned": {
+          "k": 1.0,
+          "h": 7.47,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 4,
+            "0.01": 9,
+            "0.001": 12,
+            "0.0003": 27,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 2.51,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 8,
+            "0.01": 9,
+            "0.001": 68,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      },
+      "cusum_on_naive_t2_fixed_h": {
+        "tuned": {
+          "k": 1.0,
+          "h": 5.0,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 3,
+            "0.01": 9,
+            "0.001": 11,
+            "0.0003": 21,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 5.0,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 2,
+          "delay_by_effectiveness": {
+            "1": 2,
+            "0.1": 9,
+            "0.01": 10,
+            "0.001": 137,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      }
+    }
+  },
+  "diagnostic_two_sided_gaussian_reference": {
+    "statistic": "raw T^2",
+    "reference": "theoretical (Gaussian)",
+    "mean": 84.50702112676056,
+    "sd": 13.563714326803808,
+    "h": 5.0,
+    "tuned": {
+      "k": 1.0,
+      "benign_alarms_upper_arm": 56,
+      "benign_alarms_lower_arm": 410
+    },
+    "conservative": {
+      "k": 3.0,
+      "benign_alarms_upper_arm": 50,
+      "benign_alarms_lower_arm": 260
+    }
+  }
+}

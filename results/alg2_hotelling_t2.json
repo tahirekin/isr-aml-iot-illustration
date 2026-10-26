@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "data_dir": "Danmini_Doorbell",
+    "benign_path": "Danmini_Doorbell/benign_traffic.csv",
+    "attack_paths": {
+      "gafgyt": "Danmini_Doorbell/gafgyt_attacks/combo.csv",
+      "mirai": "Danmini_Doorbell/mirai_attacks/syn.csv"
+    },
+    "n_features_raw": 115,
+    "n_train": 2000,
+    "n_calib": 1000,
+    "n_test_benign": 1000,
+    "benign_row_ranges": {
+      "train": [
+        3,
+        2003
+      ],
+      "calib": [
+        2003,
+        3003
+      ],
+      "test_benign": [
+        3003,
+        4003
+      ]
+    },
+    "attack_restart_rows_skipped": {
+      "gafgyt": 1,
+      "mirai": 1
+    },
+    "benign_capture_restarts_in_window": [
+      3
+    ],
+    "benign_rows_repeating_earlier_rows": {
+      "in_file": 9153,
+      "in_window": 0
+    },
+    "n_attack_used": 1000,
+    "train_offset": 3,
+    "onset_index": 1000,
+    "preprocessing": {
+      "n_constant_columns_dropped": 0,
+      "p_eff": 81,
+      "rank_tol": 1e-08
+    }
+  },
+  "t2_control_limits": {
+    "naive": {
+      "0.01": 119.36347263532372,
+      "0.001": 133.01361712084457
+    },
+    "naive_empirical_calibration": {
+      "0.01": 993.4177526726754,
+      "0.001": 13429.171315786683
+    }
+  },
+  "benign_t2_quantiles": {
+    "calibration": {
+      "0.5": 12.169696209608126,
+      "0.9": 114.98629080489349,
+      "0.99": 993.4177526726754
+    },
+    "training_insample": {
+      "0.5": 17.879601293032007,
+      "0.9": 138.8024446554875,
+      "0.99": 1823.9303146395305
+    },
+    "F_reference_median": 83.75428123394684,
+    "test_block_median": 10.46105621813607
+  },
+  "projected_training_excess_kurtosis": {
+    "min": 11.084523911219943,
+    "max": 342.0218551450596
+  },
+  "per_attack": {
+    "gafgyt": {
+      "n_attack_used": 1000,
+      "onset_index": 1000,
+      "naive": {
+        "0.01": {
+          "false_alarms_pre_onset": 81,
+          "false_alarm_rate_pre_onset": 0.081,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 69,
+          "false_alarm_rate_pre_onset": 0.069,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        }
+      },
+      "naive_empirical_limit": {
+        "0.01": {
+          "false_alarms_pre_onset": 8,
+          "false_alarm_rate_pre_onset": 0.008,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 0,
+          "false_alarm_rate_pre_onset": 0.0,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 0.998
+        }
+      },
+      "attack_t2_quantiles": {
+        "min": 4000.5425125215233,
+        "0.5": 793033627.6156194,
+        "max": 1499639944.9760637
+      }
+    },
+    "mirai": {
+      "n_attack_used": 1000,
+      "onset_index": 1000,
+      "naive": {
+        "0.01": {
+          "false_alarms_pre_onset": 81,
+          "false_alarm_rate_pre_onset": 0.081,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 69,
+          "false_alarm_rate_pre_onset": 0.069,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        }
+      },
+      "naive_empirical_limit": {
+        "0.01": {
+          "false_alarms_pre_onset": 8,
+          "false_alarm_rate_pre_onset": 0.008,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 0,
+          "false_alarm_rate_pre_onset": 0.0,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        }
+      },
+      "attack_t2_quantiles": {
+        "min": 49947.80011799733,
+        "0.5": 1494091894.4088535,
+        "max": 1593219310.5792725
+      }
+    }
+  },
+  "false_alarm_rate_intervals": {
+    "F_limit": {
+      "0.01": [
+        0.058,
+        0.106
+      ],
+      "0.001": [
+        0.047,
+        0.094
+      ]
+    },
+    "calibrated_limit": {
+      "0.01": [
+        0.0,
+        0.022
+      ]
+    },
+    "method": "moving-block bootstrap, block 50, 2000 replicates"
+  }
+}

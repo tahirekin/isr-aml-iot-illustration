@@ -9,13 +9,13 @@ one of them can be run, read, or shared on its own.
 | Script | Manuscript | What it does | Main outputs |
 |---|---|---|---|
 | `alg1_data_setup.py` | 4.1 | Loads Danmini Doorbell, splits benign/attack blocks, z-scores with training moments, projects onto the non-degenerate principal subspace | `alg1_data_setup.json`, `section4_eigenvalues.png` |
-| `alg2_hotelling_t2.py` | 4.2.1 | Naive Hotelling T² with the Phase II F limit at α = 0.01, 0.001; false alarms before onset, detection delay | `alg2_hotelling_t2.json`, `section4_tsq_traces.png` |
-| `alg3_cusum_t2.py` | 4.2.2 | Page's one-sided (upper) CUSUM on standardized log T² at a tuned and a conservative k, each with the threshold h set for a common in-control ARL (Phase I stationary bootstrap); delays for weakened attacks; the fixed-h results for comparison | `alg3_cusum_t2.json`, `section4_cusum.png` |
-| `alg4_contamination_mcd.py` | 4.3 | Replaces a fraction of training rows with attack rows; compares naive T² and MCD-based T², each against its own clean-training baseline: false alarms on the clean test block at the F limit, and, at limits calibrated on Phase I data, false alarms and detection of weakened attacks; block-bootstrap intervals; how far each estimate moves (location, and variance along the attack direction) in fixed coordinates | `alg4_contamination_mcd.json`, `section4_contamination.png` |
-| `alg5_ara_choice_of_k.py` | 4.4 | The defender chooses k, from Phase I data, against an attacker who chooses its effectiveness e (a throttle; the code parameterizes it as δ = 1 − e): ARA with uncertainty about the attacker's weights and its perception of k (Monte Carlo), and the known-types game as a limiting case; thresholds for a common ARL (main) or h fixed (comparison); k* against the false-alarm cost; evaluation on the test sequence | `alg5_ara.json`, `section4_ara_tradeoff.png` (Figure 7), `section4_ara_cost.png` (Supplementary Figure S1) |
+| `alg2_hotelling_t2.py` | 4.2.1 | Naive Hotelling T² with the Phase II F limit at α = 0.01, 0.001: false alarms before onset (with moving-block bootstrap intervals), detection delay, and the same rates under a limit calibrated at the Phase I 99% quantile | `alg2_hotelling_t2.json`, `section4_tsq_traces.png` |
+| `alg3_cusum_t2.py` | 4.2.2 | Page's one-sided (upper) CUSUM on standardized log T² at a tuned and a conservative k, each with the threshold h set for a common in-control ARL (Phase I stationary bootstrap); delays for weakened attacks; the fixed-h results and the textbook two-sided raw-T² CUSUM (466 benign alarms at k = 1) as comparisons | `alg3_cusum_t2.json`, `section4_cusum.png` |
+| `alg4_contamination_mcd.py` | 4.3 | Replaces a fraction of training rows with attack rows; compares naive T² and MCD-based T², each against its own clean-training baseline: false alarms on the clean test block at the F limit, and, at limits calibrated on Phase I data, false alarms and detection of weakened attacks; block-bootstrap intervals; how far each estimate moves (location, and variance along the attack direction) in fixed coordinates; MCD rates are medians over five random starts with their range, and the exact-fit diagnostics (rank, the 56 constant raw features, rates inside and outside the exact-fit state) are in the JSON | `alg4_contamination_mcd.json`, `section4_contamination.png` |
+| `alg5_ara_choice_of_k.py` | 4.4 | The defender chooses k, from Phase I data, against an attacker who chooses its effectiveness e (a throttle; the code parameterizes it as δ = 1 − e): ARA over three attacker types (aggressive, balanced, stealthy; weights on effectiveness 0.8, 0.5, 0.2) with uncertainty about the attacker's weights and its perception of k (Monte Carlo, 4,000 draws), and the known-types game as a limiting case; thresholds for a common ARL (main) or h fixed (comparison); k* against the false-alarm cost; evaluation on the test sequence | `alg5_ara.json`, `section4_ara_tradeoff.png` (Figure 4), `section4_ara_cost.png` (Supplementary Figure S3) |
 | `run_all.py` | all | Runs 1–5 with one shared set of options and writes the two summary files the manuscript reads from | `section4_summary.json`, `ara_summary.json` |
 | `sensitivity.py` | robustness | Re-runs 2–5 with the benign blocks moved through the recording (one window per stretch of a capture), other contamination draws and fractions, other MCD support fractions, other eigenvalue cut-offs, other ARL targets and bootstrap block lengths, other ARA uncertainty settings, and fixed h = 5 | `sensitivity.json`, `sensitivity.csv` |
-| `sensitivity_tables.py` | tables | Writes the LaTeX tables of the sensitivity appendix (Tables 14 and 15) and of the supplement (Tables S1 and S3) from `sensitivity.csv`, so that no number in them is typed by hand | `table_windows.tex`, `table_contam.tex`, `table_detect.tex`, `table_full.tex` |
+| `sensitivity_tables.py` | tables | Writes the LaTeX tables of the supplementary material (Tables S2 and S3 for the windows and the threshold and ARA settings, Table S4 for contamination and MCD, Table S6 for every setting) from `sensitivity.csv`, so that no number in them is typed by hand | `table_windows.tex`, `table_contam.tex`, `table_detect.tex`, `table_full.tex` |
 
 ## Requirements
 
@@ -104,9 +104,18 @@ writes the appendix and supplement tables.
 
 Every number in Section 4 is read from `results/section4_summary.json`,
 `results/ara_summary.json`, or `results/alg4_contamination_mcd.json` (the
-calibrated-limit and exact-fit diagnostics), and the figures are the five
-`section4_*.png` files. The robustness statements in Section 4 come from
+calibrated-limit and exact-fit diagnostics). The figures map as follows:
+`section4_contamination.png` is Figure 3, `section4_ara_tradeoff.png` is
+Figure 4, and in the supplementary material `section4_tsq_traces.png` is Figure
+S1, `section4_cusum.png` is Figure S2 and `section4_ara_cost.png` is Figure S3
+(`section4_eigenvalues.png` is a diagnostic and is not in the manuscript). The robustness statements in Section 4 come from
 `results/sensitivity/sensitivity.csv`.
+
+The `results/` folder holds the outputs of the run on the real Danmini Doorbell
+data that the manuscript reports (`results/*.json`, `results/*.png`) and of the
+sensitivity run (`results/sensitivity/`: the merged `sensitivity.csv` and `.json`
+and the four LaTeX tables). Rerunning the pipeline on the same data regenerates
+them.
 
 ## Tests
 

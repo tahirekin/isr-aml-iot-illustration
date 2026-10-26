@@ -60,7 +60,7 @@ Usage:
     python alg5_ara_choice_of_k.py --data-dir /path/to/Danmini_Doorbell --out-dir results
 Outputs:
     results/alg5_ara.json, results/section4_ara_tradeoff.png,
-    results/section4_ara_cost.png (Supplementary Figure S1)
+    results/section4_ara_cost.png (Supplementary Figure S3)
 Requires: numpy, pandas, scipy, matplotlib
 """
 import argparse

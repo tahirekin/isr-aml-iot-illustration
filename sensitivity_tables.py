@@ -6,10 +6,10 @@ Usage:
     python sensitivity_tables.py --csv results/sensitivity/sensitivity.csv \
         --out-dir results/sensitivity
 Outputs:
-    table_windows.tex      appendix: one row per benign window
-    table_contam.tex       supplement (Table S1): contamination and MCD settings, main window
-    table_detect.tex       appendix: threshold and ARA settings, main window
-    table_full.tex         supplement (Table S3): every setting and botnet, all columns
+    table_windows.tex      supplement (Table S2): one row per benign window
+    table_contam.tex       supplement (Table S4): contamination and MCD settings, main window
+    table_detect.tex       supplement (Table S3): threshold and ARA settings, main window
+    table_full.tex         supplement (Table S6): every setting and botnet, all columns
 """
 import argparse
 import csv

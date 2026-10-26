@@ -1,0 +1,2135 @@
+{
+  "meta": {
+    "data_dir": "Danmini_Doorbell",
+    "benign_path": "Danmini_Doorbell/benign_traffic.csv",
+    "attack_paths": {
+      "gafgyt": "Danmini_Doorbell/gafgyt_attacks/combo.csv",
+      "mirai": "Danmini_Doorbell/mirai_attacks/syn.csv"
+    },
+    "n_features_raw": 115,
+    "n_train": 2000,
+    "n_calib": 1000,
+    "n_test_benign": 1000,
+    "benign_row_ranges": {
+      "train": [
+        3,
+        2003
+      ],
+      "calib": [
+        2003,
+        3003
+      ],
+      "test_benign": [
+        3003,
+        4003
+      ]
+    },
+    "attack_restart_rows_skipped": {
+      "gafgyt": 1,
+      "mirai": 1
+    },
+    "benign_capture_restarts_in_window": [
+      3
+    ],
+    "benign_rows_repeating_earlier_rows": {
+      "in_file": 9153,
+      "in_window": 0
+    },
+    "n_attack_used": 1000,
+    "train_offset": 3,
+    "onset_index": 1000,
+    "preprocessing": {
+      "n_constant_columns_dropped": 0,
+      "p_eff": 81,
+      "rank_tol": 1e-08
+    },
+    "raw_scale": {
+      "log10_max_over_min_feature_sd": 18.6436447239234,
+      "min_feature_sd": 0.012977097675976062,
+      "max_feature_sd": 5.71244849550988e+16
+    }
+  },
+  "t2_control_limits": {
+    "naive": {
+      "0.01": 119.36347263532372,
+      "0.001": 133.01361712084457
+    },
+    "naive_empirical_calibration": {
+      "0.01": 993.4177526726754,
+      "0.001": 13429.171315786683
+    }
+  },
+  "benign_t2_quantiles": {
+    "calibration": {
+      "0.5": 12.169696209608126,
+      "0.9": 114.98629080489349,
+      "0.99": 993.4177526726754
+    },
+    "training_insample": {
+      "0.5": 17.879601293032007,
+      "0.9": 138.8024446554875,
+      "0.99": 1823.9303146395305
+    },
+    "F_reference_median": 83.75428123394684,
+    "test_block_median": 10.46105621813607
+  },
+  "projected_training_excess_kurtosis": {
+    "min": 11.084523911219943,
+    "max": 342.0218551450596
+  },
+  "CUSUM_K_CHOICES": {
+    "tuned": 1.0,
+    "conservative": 3.0
+  },
+  "CUSUM_H_IN_SIGMAS": 5.0,
+  "cusum_reference": {
+    "method": "calibration",
+    "statistic": "log",
+    "mean": 2.8461195502391403,
+    "sd": 1.4662959192470302,
+    "one_sided": true
+  },
+  "cusum_h_design": {
+    "mode": "arl",
+    "arl0_target": 1000.0,
+    "bootstrap": {
+      "method": "stationary",
+      "mean_block": 50.0,
+      "replicates": 400,
+      "length": 20000,
+      "seed": 0
+    },
+    "by_k": {
+      "tuned": {
+        "k": 1.0,
+        "h": 7.47,
+        "false_alarm_rate": 0.0009725,
+        "arl0_estimate": 1028.2776349614396,
+        "n_bootstrap_observations": 8000000,
+        "at_reference_h": {
+          "h": 5.0,
+          "false_alarm_rate": 0.003923375,
+          "arl0_estimate": 254.8825947048141
+        },
+        "h_used": 7.47,
+        "targeted_t2_factor": 18.776232447292504
+      },
+      "conservative": {
+        "k": 3.0,
+        "h": 2.51,
+        "false_alarm_rate": 0.00097625,
+        "arl0_estimate": 1024.3277848911653,
+        "n_bootstrap_observations": 8000000,
+        "at_reference_h": {
+          "h": 5.0,
+          "false_alarm_rate": 3.75e-07,
+          "arl0_estimate": 2666666.6666666665
+        },
+        "h_used": 2.51,
+        "targeted_t2_factor": 6619.50263525306
+      }
+    }
+  },
+  "diagnostic_two_sided_gaussian_reference": {
+    "statistic": "raw T^2",
+    "reference": "theoretical (Gaussian)",
+    "mean": 84.50702112676056,
+    "sd": 13.563714326803808,
+    "h": 5.0,
+    "tuned": {
+      "k": 1.0,
+      "benign_alarms_upper_arm": 56,
+      "benign_alarms_lower_arm": 410
+    },
+    "conservative": {
+      "k": 3.0,
+      "benign_alarms_upper_arm": 50,
+      "benign_alarms_lower_arm": 260
+    }
+  },
+  "per_attack": {
+    "gafgyt": {
+      "n_attack_used": 1000,
+      "onset_index": 1000,
+      "naive": {
+        "0.01": {
+          "false_alarms_pre_onset": 81,
+          "false_alarm_rate_pre_onset": 0.081,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 69,
+          "false_alarm_rate_pre_onset": 0.069,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        }
+      },
+      "naive_empirical_limit": {
+        "0.01": {
+          "false_alarms_pre_onset": 8,
+          "false_alarm_rate_pre_onset": 0.008,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 0,
+          "false_alarm_rate_pre_onset": 0.0,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 0.998
+        }
+      },
+      "attack_t2_quantiles": {
+        "min": 4000.5425125215233,
+        "0.5": 793033627.6156194,
+        "max": 1499639944.9760637
+      },
+      "cusum_on_naive_t2": {
+        "tuned": {
+          "k": 1.0,
+          "h": 7.47,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 5,
+            "0.01": 6,
+            "0.001": 12,
+            "0.0003": 655,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 2.51,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "delay_by_effectiveness": {
+            "1": 0,
+            "0.1": 5,
+            "0.01": 6,
+            "0.001": null,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      },
+      "cusum_on_naive_t2_fixed_h": {
+        "tuned": {
+          "k": 1.0,
+          "h": 5.0,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "delay_by_effectiveness": {
+            "1": 0,
+            "0.1": 4,
+            "0.01": 6,
+            "0.001": 10,
+            "0.0003": 631,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 5.0,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 5,
+            "0.01": 7,
+            "0.001": null,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      }
+    },
+    "mirai": {
+      "n_attack_used": 1000,
+      "onset_index": 1000,
+      "naive": {
+        "0.01": {
+          "false_alarms_pre_onset": 81,
+          "false_alarm_rate_pre_onset": 0.081,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 69,
+          "false_alarm_rate_pre_onset": 0.069,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        }
+      },
+      "naive_empirical_limit": {
+        "0.01": {
+          "false_alarms_pre_onset": 8,
+          "false_alarm_rate_pre_onset": 0.008,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        },
+        "0.001": {
+          "false_alarms_pre_onset": 0,
+          "false_alarm_rate_pre_onset": 0.0,
+          "detected": true,
+          "detection_delay_rows": 0,
+          "detection_rate_post_onset": 1.0
+        }
+      },
+      "attack_t2_quantiles": {
+        "min": 49947.80011799733,
+        "0.5": 1494091894.4088535,
+        "max": 1593219310.5792725
+      },
+      "cusum_on_naive_t2": {
+        "tuned": {
+          "k": 1.0,
+          "h": 7.47,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 4,
+            "0.01": 9,
+            "0.001": 12,
+            "0.0003": 27,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 2.51,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 8,
+            "0.01": 9,
+            "0.001": 68,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      },
+      "cusum_on_naive_t2_fixed_h": {
+        "tuned": {
+          "k": 1.0,
+          "h": 5.0,
+          "false_alarm_before_onset": true,
+          "n_false_alarms_pre_onset": 3,
+          "detected": true,
+          "detection_delay_rows": 1,
+          "delay_by_effectiveness": {
+            "1": 1,
+            "0.1": 3,
+            "0.01": 9,
+            "0.001": 11,
+            "0.0003": 21,
+            "0.0001": null
+          }
+        },
+        "conservative": {
+          "k": 3.0,
+          "h": 5.0,
+          "false_alarm_before_onset": false,
+          "n_false_alarms_pre_onset": 0,
+          "detected": true,
+          "detection_delay_rows": 2,
+          "delay_by_effectiveness": {
+            "1": 2,
+            "0.1": 9,
+            "0.01": 10,
+            "0.001": 137,
+            "0.0003": null,
+            "0.0001": null
+          }
+        }
+      }
+    }
+  },
+  "contamination_demo": {
+    "gafgyt": {
+      "n_contaminating_rows": 100,
+      "naive_false_alarm_rate_uncontaminated_baseline": 0.081,
+      "naive_false_alarm_rate_on_clean": 0.071,
+      "mcd_false_alarm_rate_uncontaminated_baseline": 0.506,
+      "mcd_false_alarm_rate_on_clean": 0.469,
+      "naive_detection_rate_on_attack": 1.0,
+      "mcd_detection_rate_on_attack": 1.0,
+      "mcd_share_of_contaminating_rows_outside_support": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "intervals": {
+        "method": "moving-block bootstrap, block 50, 2000 replicates",
+        "F_limit_false_alarm_rate": {
+          "naive_clean": [
+            0.058,
+            0.106
+          ],
+          "naive_contaminated": [
+            0.05,
+            0.094
+          ],
+          "naive_clean_minus_contaminated": [
+            0.003,
+            0.018
+          ],
+          "share_of_replicates_with_lower_contaminated_rate": 1.0,
+          "mcd_clean_first_start": [
+            0.463,
+            0.559
+          ],
+          "mcd_contaminated_first_start": [
+            0.441,
+            0.508
+          ]
+        },
+        "calibrated_false_alarm_rate": {
+          "naive_clean": [
+            0.0,
+            0.023
+          ],
+          "naive_contaminated": [
+            0.001,
+            0.025
+          ],
+          "mcd_clean_first_start": [
+            0.0,
+            0.016
+          ],
+          "mcd_contaminated_first_start": [
+            0.0,
+            0.016
+          ]
+        },
+        "calibrated_detection_rate_full_strength": {
+          "naive_clean": [
+            0.999,
+            1.0
+          ],
+          "naive_contaminated": [
+            0.002,
+            1.0
+          ],
+          "mcd_clean_first_start": [
+            0.996,
+            1.0
+          ],
+          "mcd_contaminated_first_start": [
+            0.600975,
+            0.95
+          ]
+        }
+      },
+      "estimand_shift": {
+        "coordinates": "clean-training standardization and projection, whitened by the naive clean covariance",
+        "naive": {
+          "location_shift": 4943.140719205441,
+          "variance_along_attack_clean": 1.0000000000027813,
+          "variance_along_attack_contaminated": 68497581.56719407
+        },
+        "mcd": {
+          "location_shift": {
+            "median": 0.06790284924697697,
+            "min": 0.0436788237028323,
+            "max": 0.08578989615708839
+          },
+          "variance_along_attack_clean": {
+            "median": 0.008399186470984086,
+            "min": 0.008366840482419919,
+            "max": 0.008708370364504251
+          },
+          "variance_along_attack_contaminated": {
+            "median": 0.008577228099903387,
+            "min": 0.008518208466043552,
+            "max": 0.008696532463467611
+          }
+        }
+      },
+      "clean_fit": {
+        "p_eff": 81,
+        "naive_control_limit": 119.36347263532372,
+        "naive_false_alarm_rate": 0.081,
+        "naive_detection_rate_on_attack": 1.0,
+        "mcd_n_starts": 5,
+        "mcd_false_alarm_rate": 0.506,
+        "mcd_false_alarm_rate_range": [
+          0.472,
+          0.513
+        ],
+        "mcd_detection_rate_on_attack": {
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "mcd_scatter_rank": {
+          "median": 19.0,
+          "min": 19.0,
+          "max": 20.0
+        },
+        "mcd_n_support": {
+          "median": 1012.0,
+          "min": 1006.0,
+          "max": 1015.0
+        },
+        "mcd_fit_warnings_total": 43,
+        "mcd_per_start": [
+          {
+            "random_state": 0,
+            "rank": 20,
+            "control_limit": 38.133391951498396,
+            "n_support": 1015,
+            "false_alarm_rate": 0.506,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 8,
+            "calibrated": {
+              "limit": 10452469.968761088,
+              "false_alarm_rate": 0.004,
+              "detection_rate_by_effectiveness": {
+                "1": 0.999,
+                "0.562": 0.998,
+                "0.316": 0.996,
+                "0.178": 0.993,
+                "0.1": 0.993,
+                "0.0562": 0.993,
+                "0.0316": 0.993,
+                "0.0178": 0.901,
+                "0.01": 0.284,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 1,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1006,
+            "false_alarm_rate": 0.472,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 7,
+            "calibrated": {
+              "limit": 6431050.837820749,
+              "false_alarm_rate": 0.004,
+              "detection_rate_by_effectiveness": {
+                "1": 0.998,
+                "0.562": 0.998,
+                "0.316": 0.993,
+                "0.178": 0.993,
+                "0.1": 0.993,
+                "0.0562": 0.993,
+                "0.0316": 0.993,
+                "0.0178": 0.993,
+                "0.01": 0.573,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 2,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1006,
+            "false_alarm_rate": 0.506,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 7,
+            "calibrated": {
+              "limit": 8651469.55279537,
+              "false_alarm_rate": 0.007,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 0.998,
+                "0.316": 0.998,
+                "0.178": 0.993,
+                "0.1": 0.993,
+                "0.0562": 0.993,
+                "0.0316": 0.993,
+                "0.0178": 0.971,
+                "0.01": 0.42,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 3,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1012,
+            "false_alarm_rate": 0.513,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 8,
+            "calibrated": {
+              "limit": 4021183.6148429383,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 0.998,
+                "0.178": 0.998,
+                "0.1": 0.993,
+                "0.0562": 0.993,
+                "0.0316": 0.993,
+                "0.0178": 0.993,
+                "0.01": 0.839,
+                "0.00562": 0.166,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 4,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1013,
+            "false_alarm_rate": 0.491,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 13,
+            "calibrated": {
+              "limit": 11113188.427362252,
+              "false_alarm_rate": 0.008,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 0.998,
+                "0.178": 0.997,
+                "0.1": 0.993,
+                "0.0562": 0.993,
+                "0.0316": 0.993,
+                "0.0178": 0.894,
+                "0.01": 0.272,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          }
+        ],
+        "exact_fit_state_first_start": {
+          "n_raw_features_constant_within_mcd_support": 56,
+          "raw_features_constant_within_mcd_support": [
+            "HH_L5_weight",
+            "HH_L5_mean",
+            "HH_L5_std",
+            "HH_L5_magnitude",
+            "HH_L5_radius",
+            "HH_L5_covariance",
+            "HH_L5_pcc",
+            "HH_L3_weight",
+            "HH_L3_mean",
+            "HH_L3_std",
+            "HH_L3_magnitude",
+            "HH_L3_radius",
+            "HH_L3_covariance",
+            "HH_L3_pcc",
+            "HH_L1_weight",
+            "HH_L1_mean",
+            "HH_L1_magnitude",
+            "HH_L1_radius",
+            "HH_L1_covariance",
+            "HH_L1_pcc",
+            "HH_L0.1_mean",
+            "HH_L0.1_magnitude",
+            "HH_L0.1_radius",
+            "HH_L0.1_covariance",
+            "HH_L0.1_pcc",
+            "HH_jit_L5_weight",
+            "HH_jit_L5_variance",
+            "HH_jit_L3_weight",
+            "HH_jit_L3_variance",
+            "HH_jit_L1_weight",
+            "HH_jit_L1_variance",
+            "HpHp_L5_weight",
+            "HpHp_L5_mean",
+            "HpHp_L5_std",
+            "HpHp_L5_magnitude",
+            "HpHp_L5_radius",
+            "HpHp_L5_covariance",
+            "HpHp_L5_pcc",
+            "HpHp_L3_weight",
+            "HpHp_L3_mean",
+            "HpHp_L3_std",
+            "HpHp_L3_magnitude",
+            "HpHp_L3_radius",
+            "HpHp_L3_covariance",
+            "HpHp_L3_pcc",
+            "HpHp_L1_weight",
+            "HpHp_L1_mean",
+            "HpHp_L1_magnitude",
+            "HpHp_L1_radius",
+            "HpHp_L1_covariance",
+            "HpHp_L1_pcc",
+            "HpHp_L0.1_mean",
+            "HpHp_L0.1_magnitude",
+            "HpHp_L0.1_radius",
+            "HpHp_L0.1_covariance",
+            "HpHp_L0.1_pcc"
+          ],
+          "share_of_training_rows": 0.577,
+          "share_of_mcd_support_in_state": 1.0,
+          "share_of_test_rows": 0.625,
+          "naive_false_alarm_rate_in_state": 0.0016,
+          "naive_false_alarm_rate_outside_state": 0.21333333333333335,
+          "mcd_false_alarm_rate_in_state": 0.2096,
+          "mcd_false_alarm_rate_outside_state": 1.0
+        },
+        "calibrated_limits": {
+          "naive": {
+            "limit": 993.4177526726754,
+            "false_alarm_rate": 0.008,
+            "detection_rate_by_effectiveness": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 0.998,
+              "0.178": 0.998,
+              "0.1": 0.996,
+              "0.0562": 0.996,
+              "0.0316": 0.995,
+              "0.0178": 0.994,
+              "0.01": 0.993,
+              "0.00562": 0.993,
+              "0.00316": 0.993,
+              "0.00178": 0.957,
+              "0.001": 0.33,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          },
+          "mcd": {
+            "limit": {
+              "median": 8651469.55279537,
+              "min": 4021183.6148429383,
+              "max": 11113188.427362252
+            },
+            "false_alarm_rate": {
+              "median": 0.004,
+              "min": 0.002,
+              "max": 0.008
+            },
+            "detection_rate_by_effectiveness": {
+              "1": 1.0,
+              "0.562": 0.998,
+              "0.316": 0.998,
+              "0.178": 0.993,
+              "0.1": 0.993,
+              "0.0562": 0.993,
+              "0.0316": 0.993,
+              "0.0178": 0.971,
+              "0.01": 0.42,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_min": {
+              "1": 0.998,
+              "0.562": 0.998,
+              "0.316": 0.993,
+              "0.178": 0.993,
+              "0.1": 0.993,
+              "0.0562": 0.993,
+              "0.0316": 0.993,
+              "0.0178": 0.894,
+              "0.01": 0.272,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_max": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 0.998,
+              "0.178": 0.998,
+              "0.1": 0.993,
+              "0.0562": 0.993,
+              "0.0316": 0.993,
+              "0.0178": 0.993,
+              "0.01": 0.839,
+              "0.00562": 0.166,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          }
+        }
+      },
+      "contaminated_fit": {
+        "p_eff": 78,
+        "naive_control_limit": 115.42768983459258,
+        "naive_false_alarm_rate": 0.071,
+        "naive_detection_rate_on_attack": 1.0,
+        "mcd_n_starts": 5,
+        "mcd_false_alarm_rate": 0.469,
+        "mcd_false_alarm_rate_range": [
+          0.457,
+          0.474
+        ],
+        "mcd_detection_rate_on_attack": {
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "mcd_scatter_rank": {
+          "median": 19.0,
+          "min": 19.0,
+          "max": 19.0
+        },
+        "mcd_n_support": {
+          "median": 1003.0,
+          "min": 983.0,
+          "max": 1009.0
+        },
+        "mcd_fit_warnings_total": 44,
+        "mcd_per_start": [
+          {
+            "random_state": 0,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1003,
+            "false_alarm_rate": 0.473,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 12,
+            "calibrated": {
+              "limit": 9274796.284447625,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 0.788,
+                "0.562": 0.005,
+                "0.316": 0.0,
+                "0.178": 0.0,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 1,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 993,
+            "false_alarm_rate": 0.457,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 9,
+            "calibrated": {
+              "limit": 2054419.880782031,
+              "false_alarm_rate": 0.004,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 0.739,
+                "0.316": 0.005,
+                "0.178": 0.005,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 2,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1005,
+            "false_alarm_rate": 0.467,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 5,
+            "calibrated": {
+              "limit": 8350104.284701318,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 0.829,
+                "0.562": 0.005,
+                "0.316": 0.005,
+                "0.178": 0.0,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 3,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1009,
+            "false_alarm_rate": 0.469,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 9,
+            "calibrated": {
+              "limit": 5660950.076581795,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 0.998,
+                "0.562": 0.148,
+                "0.316": 0.0,
+                "0.178": 0.0,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 4,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 983,
+            "false_alarm_rate": 0.474,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 9,
+            "calibrated": {
+              "limit": 6782425.927234811,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 0.998,
+                "0.562": 0.007,
+                "0.316": 0.005,
+                "0.178": 0.005,
+                "0.1": 0.003,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          }
+        ],
+        "exact_fit_state_first_start": {
+          "n_raw_features_constant_within_mcd_support": 56,
+          "raw_features_constant_within_mcd_support": [
+            "HH_L5_weight",
+            "HH_L5_mean",
+            "HH_L5_std",
+            "HH_L5_magnitude",
+            "HH_L5_radius",
+            "HH_L5_covariance",
+            "HH_L5_pcc",
+            "HH_L3_weight",
+            "HH_L3_mean",
+            "HH_L3_std",
+            "HH_L3_magnitude",
+            "HH_L3_radius",
+            "HH_L3_covariance",
+            "HH_L3_pcc",
+            "HH_L1_weight",
+            "HH_L1_mean",
+            "HH_L1_magnitude",
+            "HH_L1_radius",
+            "HH_L1_covariance",
+            "HH_L1_pcc",
+            "HH_L0.1_mean",
+            "HH_L0.1_magnitude",
+            "HH_L0.1_radius",
+            "HH_L0.1_covariance",
+            "HH_L0.1_pcc",
+            "HH_jit_L5_weight",
+            "HH_jit_L5_variance",
+            "HH_jit_L3_weight",
+            "HH_jit_L3_variance",
+            "HH_jit_L1_weight",
+            "HH_jit_L1_variance",
+            "HpHp_L5_weight",
+            "HpHp_L5_mean",
+            "HpHp_L5_std",
+            "HpHp_L5_magnitude",
+            "HpHp_L5_radius",
+            "HpHp_L5_covariance",
+            "HpHp_L5_pcc",
+            "HpHp_L3_weight",
+            "HpHp_L3_mean",
+            "HpHp_L3_std",
+            "HpHp_L3_magnitude",
+            "HpHp_L3_radius",
+            "HpHp_L3_covariance",
+            "HpHp_L3_pcc",
+            "HpHp_L1_weight",
+            "HpHp_L1_mean",
+            "HpHp_L1_magnitude",
+            "HpHp_L1_radius",
+            "HpHp_L1_covariance",
+            "HpHp_L1_pcc",
+            "HpHp_L0.1_mean",
+            "HpHp_L0.1_magnitude",
+            "HpHp_L0.1_radius",
+            "HpHp_L0.1_covariance",
+            "HpHp_L0.1_pcc"
+          ],
+          "share_of_training_rows": 0.551,
+          "share_of_mcd_support_in_state": 1.0,
+          "share_of_test_rows": 0.625,
+          "naive_false_alarm_rate_in_state": 0.0016,
+          "naive_false_alarm_rate_outside_state": 0.18666666666666668,
+          "mcd_false_alarm_rate_in_state": 0.1568,
+          "mcd_false_alarm_rate_outside_state": 1.0
+        },
+        "calibrated_limits": {
+          "naive": {
+            "limit": 751.8859618131494,
+            "false_alarm_rate": 0.009,
+            "detection_rate_by_effectiveness": {
+              "1": 0.511,
+              "0.562": 0.007,
+              "0.316": 0.005,
+              "0.178": 0.005,
+              "0.1": 0.003,
+              "0.0562": 0.003,
+              "0.0316": 0.003,
+              "0.0178": 0.001,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          },
+          "mcd": {
+            "limit": {
+              "median": 6782425.927234811,
+              "min": 2054419.880782031,
+              "max": 9274796.284447625
+            },
+            "false_alarm_rate": {
+              "median": 0.002,
+              "min": 0.002,
+              "max": 0.004
+            },
+            "detection_rate_by_effectiveness": {
+              "1": 0.998,
+              "0.562": 0.007,
+              "0.316": 0.005,
+              "0.178": 0.0,
+              "0.1": 0.0,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_min": {
+              "1": 0.788,
+              "0.562": 0.005,
+              "0.316": 0.0,
+              "0.178": 0.0,
+              "0.1": 0.0,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_max": {
+              "1": 1.0,
+              "0.562": 0.739,
+              "0.316": 0.005,
+              "0.178": 0.005,
+              "0.1": 0.003,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          }
+        }
+      }
+    },
+    "mirai": {
+      "n_contaminating_rows": 100,
+      "naive_false_alarm_rate_uncontaminated_baseline": 0.081,
+      "naive_false_alarm_rate_on_clean": 0.067,
+      "mcd_false_alarm_rate_uncontaminated_baseline": 0.506,
+      "mcd_false_alarm_rate_on_clean": 0.461,
+      "naive_detection_rate_on_attack": 1.0,
+      "mcd_detection_rate_on_attack": 1.0,
+      "mcd_share_of_contaminating_rows_outside_support": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "intervals": {
+        "method": "moving-block bootstrap, block 50, 2000 replicates",
+        "F_limit_false_alarm_rate": {
+          "naive_clean": [
+            0.058,
+            0.106
+          ],
+          "naive_contaminated": [
+            0.046975000000000044,
+            0.091
+          ],
+          "naive_clean_minus_contaminated": [
+            0.007,
+            0.022
+          ],
+          "share_of_replicates_with_lower_contaminated_rate": 1.0,
+          "mcd_clean_first_start": [
+            0.463,
+            0.559
+          ],
+          "mcd_contaminated_first_start": [
+            0.441,
+            0.5090249999999998
+          ]
+        },
+        "calibrated_false_alarm_rate": {
+          "naive_clean": [
+            0.0,
+            0.023
+          ],
+          "naive_contaminated": [
+            0.001,
+            0.02202499999999986
+          ],
+          "mcd_clean_first_start": [
+            0.0,
+            0.016
+          ],
+          "mcd_contaminated_first_start": [
+            0.0,
+            0.015
+          ]
+        },
+        "calibrated_detection_rate_full_strength": {
+          "naive_clean": [
+            1.0,
+            1.0
+          ],
+          "naive_contaminated": [
+            0.003,
+            1.0
+          ],
+          "mcd_clean_first_start": [
+            1.0,
+            1.0
+          ],
+          "mcd_contaminated_first_start": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "estimand_shift": {
+        "coordinates": "clean-training standardization and projection, whitened by the naive clean covariance",
+        "naive": {
+          "location_shift": 3326.2652310046005,
+          "variance_along_attack_clean": 1.0000000000022344,
+          "variance_along_attack_contaminated": 95960584.47287819
+        },
+        "mcd": {
+          "location_shift": {
+            "median": 0.10290226798024968,
+            "min": 0.08767523292069448,
+            "max": 0.2433492298069088
+          },
+          "variance_along_attack_clean": {
+            "median": 0.025440935818801566,
+            "min": 0.02516161057074932,
+            "max": 0.025595933193462855
+          },
+          "variance_along_attack_contaminated": {
+            "median": 0.026189424257965818,
+            "min": 0.02556446122390763,
+            "max": 0.03033264473187281
+          }
+        }
+      },
+      "clean_fit": {
+        "p_eff": 81,
+        "naive_control_limit": 119.36347263532372,
+        "naive_false_alarm_rate": 0.081,
+        "naive_detection_rate_on_attack": 1.0,
+        "mcd_n_starts": 5,
+        "mcd_false_alarm_rate": 0.506,
+        "mcd_false_alarm_rate_range": [
+          0.472,
+          0.513
+        ],
+        "mcd_detection_rate_on_attack": {
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "mcd_scatter_rank": {
+          "median": 19.0,
+          "min": 19.0,
+          "max": 20.0
+        },
+        "mcd_n_support": {
+          "median": 1012.0,
+          "min": 1006.0,
+          "max": 1015.0
+        },
+        "mcd_fit_warnings_total": 43,
+        "mcd_per_start": [
+          {
+            "random_state": 0,
+            "rank": 20,
+            "control_limit": 38.133391951498396,
+            "n_support": 1015,
+            "false_alarm_rate": 0.506,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 8,
+            "calibrated": {
+              "limit": 10452469.968761088,
+              "false_alarm_rate": 0.004,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 0.998,
+                "0.316": 0.994,
+                "0.178": 0.939,
+                "0.1": 0.67,
+                "0.0562": 0.67,
+                "0.0316": 0.67,
+                "0.0178": 0.67,
+                "0.01": 0.67,
+                "0.00562": 0.67,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 1,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1006,
+            "false_alarm_rate": 0.472,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 7,
+            "calibrated": {
+              "limit": 6431050.837820749,
+              "false_alarm_rate": 0.004,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 0.996,
+                "0.316": 0.992,
+                "0.178": 0.992,
+                "0.1": 0.67,
+                "0.0562": 0.67,
+                "0.0316": 0.67,
+                "0.0178": 0.67,
+                "0.01": 0.67,
+                "0.00562": 0.67,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 2,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1006,
+            "false_alarm_rate": 0.506,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 7,
+            "calibrated": {
+              "limit": 8651469.55279537,
+              "false_alarm_rate": 0.007,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 0.996,
+                "0.178": 0.992,
+                "0.1": 0.67,
+                "0.0562": 0.67,
+                "0.0316": 0.67,
+                "0.0178": 0.67,
+                "0.01": 0.67,
+                "0.00562": 0.67,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 3,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1012,
+            "false_alarm_rate": 0.513,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 8,
+            "calibrated": {
+              "limit": 4021183.6148429383,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 1.0,
+                "0.178": 0.996,
+                "0.1": 0.831,
+                "0.0562": 0.67,
+                "0.0316": 0.67,
+                "0.0178": 0.67,
+                "0.01": 0.67,
+                "0.00562": 0.67,
+                "0.00316": 0.67,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 4,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1013,
+            "false_alarm_rate": 0.491,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 13,
+            "calibrated": {
+              "limit": 11113188.427362252,
+              "false_alarm_rate": 0.008,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 1.0,
+                "0.178": 0.995,
+                "0.1": 0.67,
+                "0.0562": 0.67,
+                "0.0316": 0.67,
+                "0.0178": 0.67,
+                "0.01": 0.67,
+                "0.00562": 0.67,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          }
+        ],
+        "exact_fit_state_first_start": {
+          "n_raw_features_constant_within_mcd_support": 56,
+          "raw_features_constant_within_mcd_support": [
+            "HH_L5_weight",
+            "HH_L5_mean",
+            "HH_L5_std",
+            "HH_L5_magnitude",
+            "HH_L5_radius",
+            "HH_L5_covariance",
+            "HH_L5_pcc",
+            "HH_L3_weight",
+            "HH_L3_mean",
+            "HH_L3_std",
+            "HH_L3_magnitude",
+            "HH_L3_radius",
+            "HH_L3_covariance",
+            "HH_L3_pcc",
+            "HH_L1_weight",
+            "HH_L1_mean",
+            "HH_L1_magnitude",
+            "HH_L1_radius",
+            "HH_L1_covariance",
+            "HH_L1_pcc",
+            "HH_L0.1_mean",
+            "HH_L0.1_magnitude",
+            "HH_L0.1_radius",
+            "HH_L0.1_covariance",
+            "HH_L0.1_pcc",
+            "HH_jit_L5_weight",
+            "HH_jit_L5_variance",
+            "HH_jit_L3_weight",
+            "HH_jit_L3_variance",
+            "HH_jit_L1_weight",
+            "HH_jit_L1_variance",
+            "HpHp_L5_weight",
+            "HpHp_L5_mean",
+            "HpHp_L5_std",
+            "HpHp_L5_magnitude",
+            "HpHp_L5_radius",
+            "HpHp_L5_covariance",
+            "HpHp_L5_pcc",
+            "HpHp_L3_weight",
+            "HpHp_L3_mean",
+            "HpHp_L3_std",
+            "HpHp_L3_magnitude",
+            "HpHp_L3_radius",
+            "HpHp_L3_covariance",
+            "HpHp_L3_pcc",
+            "HpHp_L1_weight",
+            "HpHp_L1_mean",
+            "HpHp_L1_magnitude",
+            "HpHp_L1_radius",
+            "HpHp_L1_covariance",
+            "HpHp_L1_pcc",
+            "HpHp_L0.1_mean",
+            "HpHp_L0.1_magnitude",
+            "HpHp_L0.1_radius",
+            "HpHp_L0.1_covariance",
+            "HpHp_L0.1_pcc"
+          ],
+          "share_of_training_rows": 0.577,
+          "share_of_mcd_support_in_state": 1.0,
+          "share_of_test_rows": 0.625,
+          "naive_false_alarm_rate_in_state": 0.0016,
+          "naive_false_alarm_rate_outside_state": 0.21333333333333335,
+          "mcd_false_alarm_rate_in_state": 0.2096,
+          "mcd_false_alarm_rate_outside_state": 1.0
+        },
+        "calibrated_limits": {
+          "naive": {
+            "limit": 993.4177526726754,
+            "false_alarm_rate": 0.008,
+            "detection_rate_by_effectiveness": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 1.0,
+              "0.178": 1.0,
+              "0.1": 0.996,
+              "0.0562": 0.992,
+              "0.0316": 0.992,
+              "0.0178": 0.992,
+              "0.01": 0.992,
+              "0.00562": 0.992,
+              "0.00316": 0.67,
+              "0.00178": 0.67,
+              "0.001": 0.67,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          },
+          "mcd": {
+            "limit": {
+              "median": 8651469.55279537,
+              "min": 4021183.6148429383,
+              "max": 11113188.427362252
+            },
+            "false_alarm_rate": {
+              "median": 0.004,
+              "min": 0.002,
+              "max": 0.008
+            },
+            "detection_rate_by_effectiveness": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 0.996,
+              "0.178": 0.992,
+              "0.1": 0.67,
+              "0.0562": 0.67,
+              "0.0316": 0.67,
+              "0.0178": 0.67,
+              "0.01": 0.67,
+              "0.00562": 0.67,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_min": {
+              "1": 1.0,
+              "0.562": 0.996,
+              "0.316": 0.992,
+              "0.178": 0.939,
+              "0.1": 0.67,
+              "0.0562": 0.67,
+              "0.0316": 0.67,
+              "0.0178": 0.67,
+              "0.01": 0.67,
+              "0.00562": 0.67,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_max": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 1.0,
+              "0.178": 0.996,
+              "0.1": 0.831,
+              "0.0562": 0.67,
+              "0.0316": 0.67,
+              "0.0178": 0.67,
+              "0.01": 0.67,
+              "0.00562": 0.67,
+              "0.00316": 0.67,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          }
+        }
+      },
+      "contaminated_fit": {
+        "p_eff": 79,
+        "naive_control_limit": 116.7393829236099,
+        "naive_false_alarm_rate": 0.067,
+        "naive_detection_rate_on_attack": 1.0,
+        "mcd_n_starts": 5,
+        "mcd_false_alarm_rate": 0.461,
+        "mcd_false_alarm_rate_range": [
+          0.46,
+          0.474
+        ],
+        "mcd_detection_rate_on_attack": {
+          "median": 1.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "mcd_scatter_rank": {
+          "median": 19.0,
+          "min": 19.0,
+          "max": 19.0
+        },
+        "mcd_n_support": {
+          "median": 992.0,
+          "min": 970.0,
+          "max": 1008.0
+        },
+        "mcd_fit_warnings_total": 63,
+        "mcd_per_start": [
+          {
+            "random_state": 0,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 992,
+            "false_alarm_rate": 0.474,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 14,
+            "calibrated": {
+              "limit": 6241735.388876332,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 0.996,
+                "0.316": 0.992,
+                "0.178": 0.992,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 1,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 970,
+            "false_alarm_rate": 0.46,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 14,
+            "calibrated": {
+              "limit": 3490536.884738443,
+              "false_alarm_rate": 0.004,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 1.0,
+                "0.178": 0.998,
+                "0.1": 0.003,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 2,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1008,
+            "false_alarm_rate": 0.461,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 17,
+            "calibrated": {
+              "limit": 5167344.429846527,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 0.998,
+                "0.178": 0.994,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 3,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 1008,
+            "false_alarm_rate": 0.46,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 14,
+            "calibrated": {
+              "limit": 3645084.633636059,
+              "false_alarm_rate": 0.002,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 0.998,
+                "0.316": 0.994,
+                "0.178": 0.992,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          },
+          {
+            "random_state": 4,
+            "rank": 19,
+            "control_limit": 36.715169858157076,
+            "n_support": 975,
+            "false_alarm_rate": 0.473,
+            "detection_rate_on_attack": 1.0,
+            "fit_warnings": 4,
+            "calibrated": {
+              "limit": 10391178.651925586,
+              "false_alarm_rate": 0.003,
+              "detection_rate_by_effectiveness": {
+                "1": 1.0,
+                "0.562": 1.0,
+                "0.316": 1.0,
+                "0.178": 0.005,
+                "0.1": 0.0,
+                "0.0562": 0.0,
+                "0.0316": 0.0,
+                "0.0178": 0.0,
+                "0.01": 0.0,
+                "0.00562": 0.0,
+                "0.00316": 0.0,
+                "0.00178": 0.0,
+                "0.001": 0.0,
+                "0.000562": 0.0,
+                "0.000316": 0.0,
+                "0.000178": 0.0,
+                "0.0001": 0.0,
+                "5.62e-05": 0.0,
+                "3.16e-05": 0.0,
+                "1.78e-05": 0.0,
+                "1e-05": 0.0
+              }
+            }
+          }
+        ],
+        "exact_fit_state_first_start": {
+          "n_raw_features_constant_within_mcd_support": 56,
+          "raw_features_constant_within_mcd_support": [
+            "HH_L5_weight",
+            "HH_L5_mean",
+            "HH_L5_std",
+            "HH_L5_magnitude",
+            "HH_L5_radius",
+            "HH_L5_covariance",
+            "HH_L5_pcc",
+            "HH_L3_weight",
+            "HH_L3_mean",
+            "HH_L3_std",
+            "HH_L3_magnitude",
+            "HH_L3_radius",
+            "HH_L3_covariance",
+            "HH_L3_pcc",
+            "HH_L1_weight",
+            "HH_L1_mean",
+            "HH_L1_magnitude",
+            "HH_L1_radius",
+            "HH_L1_covariance",
+            "HH_L1_pcc",
+            "HH_L0.1_mean",
+            "HH_L0.1_magnitude",
+            "HH_L0.1_radius",
+            "HH_L0.1_covariance",
+            "HH_L0.1_pcc",
+            "HH_jit_L5_weight",
+            "HH_jit_L5_variance",
+            "HH_jit_L3_weight",
+            "HH_jit_L3_variance",
+            "HH_jit_L1_weight",
+            "HH_jit_L1_variance",
+            "HpHp_L5_weight",
+            "HpHp_L5_mean",
+            "HpHp_L5_std",
+            "HpHp_L5_magnitude",
+            "HpHp_L5_radius",
+            "HpHp_L5_covariance",
+            "HpHp_L5_pcc",
+            "HpHp_L3_weight",
+            "HpHp_L3_mean",
+            "HpHp_L3_std",
+            "HpHp_L3_magnitude",
+            "HpHp_L3_radius",
+            "HpHp_L3_covariance",
+            "HpHp_L3_pcc",
+            "HpHp_L1_weight",
+            "HpHp_L1_mean",
+            "HpHp_L1_magnitude",
+            "HpHp_L1_radius",
+            "HpHp_L1_covariance",
+            "HpHp_L1_pcc",
+            "HpHp_L0.1_mean",
+            "HpHp_L0.1_magnitude",
+            "HpHp_L0.1_radius",
+            "HpHp_L0.1_covariance",
+            "HpHp_L0.1_pcc"
+          ],
+          "share_of_training_rows": 0.545,
+          "share_of_mcd_support_in_state": 1.0,
+          "share_of_test_rows": 0.625,
+          "naive_false_alarm_rate_in_state": 0.0,
+          "naive_false_alarm_rate_outside_state": 0.17866666666666667,
+          "mcd_false_alarm_rate_in_state": 0.1584,
+          "mcd_false_alarm_rate_outside_state": 1.0
+        },
+        "calibrated_limits": {
+          "naive": {
+            "limit": 812.3439926704332,
+            "false_alarm_rate": 0.009,
+            "detection_rate_by_effectiveness": {
+              "1": 0.678,
+              "0.562": 0.01,
+              "0.316": 0.008,
+              "0.178": 0.003,
+              "0.1": 0.001,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          },
+          "mcd": {
+            "limit": {
+              "median": 5167344.429846527,
+              "min": 3490536.884738443,
+              "max": 10391178.651925586
+            },
+            "false_alarm_rate": {
+              "median": 0.002,
+              "min": 0.002,
+              "max": 0.004
+            },
+            "detection_rate_by_effectiveness": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 0.998,
+              "0.178": 0.992,
+              "0.1": 0.0,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_min": {
+              "1": 1.0,
+              "0.562": 0.996,
+              "0.316": 0.992,
+              "0.178": 0.005,
+              "0.1": 0.0,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            },
+            "detection_rate_by_effectiveness_max": {
+              "1": 1.0,
+              "0.562": 1.0,
+              "0.316": 1.0,
+              "0.178": 0.998,
+              "0.1": 0.003,
+              "0.0562": 0.0,
+              "0.0316": 0.0,
+              "0.0178": 0.0,
+              "0.01": 0.0,
+              "0.00562": 0.0,
+              "0.00316": 0.0,
+              "0.00178": 0.0,
+              "0.001": 0.0,
+              "0.000562": 0.0,
+              "0.000316": 0.0,
+              "0.000178": 0.0,
+              "0.0001": 0.0,
+              "5.62e-05": 0.0,
+              "3.16e-05": 0.0,
+              "1.78e-05": 0.0,
+              "1e-05": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "contamination_settings": {
+    "alpha": 0.01,
+    "contamination_frac": 0.05,
+    "seed": 0,
+    "mcd_support_fraction": null,
+    "mcd_starts": 5,
+    "mcd_random_state": 0,
+    "rank_tol": 1e-08
+  }
+}
